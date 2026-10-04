@@ -1,0 +1,35 @@
+[project]
+name = "convoiq"
+version = "0.1.0"
+description = "Contact-center conversation intelligence pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "datasets>=5.0.1",
+    "fastapi>=0.142.2",
+    "httpx>=0.28.1",
+    "pandas>=3.0.6",
+    "pydantic>=2.13.5",
+    "scikit-learn>=1.9.1",
+    "uvicorn[standard]>=0.54.0",
+]
+
+# Install a group only when you reach that day:  uv sync --group ml
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio", "ruff"]
+ml = ["torch", "transformers", "accelerate"]
+guard = ["presidio-analyzer", "presidio-anonymizer", "spacy"]
+analytics = ["statsmodels", "lightgbm", "scipy", "bertopic", "sentence-transformers"]
+db = ["sqlalchemy", "psycopg[binary]"]
+obs = ["arize-phoenix", "prometheus-fastapi-instrumentator"]
+ 
+[tool.uv]
+package = false
+default-groups = ["dev"]
+ 
+[tool.ruff]
+line-length = 100
+ 
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+ 
