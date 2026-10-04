@@ -32,10 +32,10 @@ free-gpu:  ## Unload Ollama models so training gets the full 6GB VRAM
 	@nvidia-smi --query-gpu=memory.used,memory.total --format=csv
 
 baseline:  ## Day 1: prompted-LLM intent baseline
-	uv run python -m convintel.baseline
+	uv run python -m convoiq.baseline
 
 api:  ## Run the FastAPI server with auto-reload
-	uv run uvicorn convintel.api:app --reload --port 8000
+	uv run uvicorn convoiq.api:app --reload --port 8000
 
 test:  ## Run tests
 	uv run pytest -q
