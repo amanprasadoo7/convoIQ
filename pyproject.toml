@@ -10,13 +10,19 @@ dependencies = [
     "httpx>=0.28.1",
     "pandas>=3.0.6",
     "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
     "scikit-learn>=1.9.1",
     "uvicorn[standard]>=0.54.0",
 ]
 
 # Install a group only when you reach that day:  uv sync --group ml
 [dependency-groups]
-dev = ["pytest", "pytest-asyncio", "ruff"]
+dev = [
+    "matplotlib>=3.11.2",
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+]
 ml = ["torch", "transformers", "accelerate"]
 guard = ["presidio-analyzer", "presidio-anonymizer", "spacy"]
 analytics = ["statsmodels", "lightgbm", "scipy", "bertopic", "sentence-transformers"]

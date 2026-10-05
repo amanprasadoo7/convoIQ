@@ -8,6 +8,10 @@ wheels/
 
 # Virtual environments
 .venv
+.env
 
 /docs/links.txt
 /docs/mine/
+
+# Baseline output: contains raw dataset text, unmasked until Day 4 guardrails
+/results/
